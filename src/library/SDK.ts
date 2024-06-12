@@ -290,6 +290,7 @@ export class SDK<ExtensionEvents extends Events> extends EventManager<
 				}
 			);
 		} catch (error) {
+			console.info("Unhandled Error caught in callAction", error);
 			return this.#handleError({
 				type: "ActionError",
 				error: <string | Error>error,
@@ -304,7 +305,9 @@ export class SDK<ExtensionEvents extends Events> extends EventManager<
 			});
 		}
 
-		return { isError: false, data: <ReturnData>result };
+		const data: SDKResponse<ReturnData>=  { isError: false, data: <ReturnData>result };
+		console.info("Data returned from callAction", data);
+		return data;
 	}
 
 	/**
