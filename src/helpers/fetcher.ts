@@ -32,7 +32,7 @@ export const fetcher = async <T>(
 	};
 
 	const response: Response = await fetch(url, options);
-	console.info(`SDK callAction fetch response for url: ${url} for options:${JSON.stringify(options)} is ${response}`);
+	console.info(`SDK callAction fetch response for url: ${url} for options:${JSON.stringify(options)} is ${JSON.stringify(response)}`);
 
 	if (response.ok && response.headers.has("Frontastic-Session")) {
 		let rememberMe = await rememberMeCookieAsync.get();

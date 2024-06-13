@@ -298,7 +298,7 @@ export class SDK<ExtensionEvents extends Events> extends EventManager<
 			});
 		}
 		if (result instanceof Error) {
-			console.info(`Handled Error caught in callAction for action name: ${options.actionName} with error: ${result}`)
+			console.info(`Handled Error caught in callAction for action name: ${options.actionName} with error: ${result}`);
 			return this.#handleError({
 				type: "ActionError",
 				error: <string | Error>result.toString(),
