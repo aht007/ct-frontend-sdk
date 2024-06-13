@@ -1,6 +1,6 @@
 {
 	"name": "ct-frontend-sdk",
-	"version": "1.12.5",
+	"version": "1.12.6",
 	"license": "UNLICENSED",
 	"main": "lib/index.js",
 	"scripts": {
