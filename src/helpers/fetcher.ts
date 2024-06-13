@@ -32,6 +32,7 @@ export const fetcher = async <T>(
 	};
 
 	const response: Response = await fetch(url, options);
+	console.info(`SDK callAction fetch response for url: ${url} for options:${JSON.stringify(options)} is ${response}`);
 
 	if (response.ok && response.headers.has("Frontastic-Session")) {
 		let rememberMe = await rememberMeCookieAsync.get();
@@ -61,5 +62,7 @@ export const fetcher = async <T>(
 		error = await response.text();
 	}
 
+	console.info(`SDK callAction fetch error for url: ${url} for options:${JSON.stringify(options)} is ${error}`);
+	
 	return new FetchError(error);
 };

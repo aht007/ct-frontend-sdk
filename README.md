@@ -12,7 +12,7 @@ The commercetools Frontend SDK is a TypeScript library that simplifies the proce
 To install the base SDK in your project, run:
 
 ```bash
-yarn add @commercetools/frontend-sdk
+yarn add ct-frontend-sdk
 ```
 
 ## Features
