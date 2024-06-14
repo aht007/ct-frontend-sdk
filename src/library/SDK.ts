@@ -291,16 +291,11 @@ export class SDK<ExtensionEvents extends Events> extends EventManager<
 			);
 		} catch (error: any) {
 			console.info(
-				`Unhandled error caught with error code: ${
-					error?.code ?? ""
-				}, error name: ${error?.name ?? ""}, 
-				error type: ${error?.type ?? ""} and error message: ${
-					error?.message ?? ""
+				`Unhandled Error caught in callAction for action name: ${options.actionName} with error code: ${error?.code ?? ""
+				}, error name: ${error?.name ?? ""},
+				error type: ${error?.type ?? ""} and error message: ${error?.message ?? ""
 				} with error object:`,
 				error
-			);
-			console.info(
-				`Unhandled Error caught in callAction for action name: ${options.actionName} with error: ${error}`
 			);
 			return this.#handleError({
 				type: "ActionError",

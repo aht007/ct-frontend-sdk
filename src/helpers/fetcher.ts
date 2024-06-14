@@ -37,9 +37,15 @@ export const fetcher = async <T>(
 		)}`
 	);
 	const response: Response = await fetch(url, options);
+
 	console.info(
-		`SDK callAction fetch response for url: ${url} for options: ${options} is`,
-		response
+		`SDK callAction fetch response for url: ${url} for options: ${JSON.stringify(
+			options
+		)} has ${JSON.stringify({
+			status: response.status,
+			statusText: response.statusText,
+			headers: [...response.headers.entries()],
+		})}`,
 	);
 
 	if (response.ok && response.headers.has("Frontastic-Session")) {
