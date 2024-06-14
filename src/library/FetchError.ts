@@ -19,7 +19,7 @@ export class FetchError extends Error {
 		if (typeof error === "string") {
 			this.message = error;
 		} else {
-			Object.keys(error).forEach((key) => {
+			Object.getOwnPropertyNames(error).forEach((key) => {
 				this[key] = error[key as keyof typeof error];
 			});
 		}

@@ -289,8 +289,17 @@ export class SDK<ExtensionEvents extends Events> extends EventManager<
 					);
 				}
 			);
-		} catch (error) {
-			console.info(`Unhandled Error caught in callAction for action name: ${options.actionName} with error: ${error}`);
+		} catch (error: any) {
+			console.info(
+				`Unhandled Error caught in callAction for action name: ${
+					options.actionName
+				} with error code: ${error?.code ?? ""}, error name: ${
+					error?.name ?? ""
+				}, error type: ${error?.type ?? ""} and error message: ${
+					error?.message ?? ""
+				} with error object:`,
+				error
+			);
 			return this.#handleError({
 				type: "ActionError",
 				error: <string | Error>error,
@@ -298,7 +307,9 @@ export class SDK<ExtensionEvents extends Events> extends EventManager<
 			});
 		}
 		if (result instanceof Error) {
-			console.info(`Handled Error caught in callAction for action name: ${options.actionName} with error: ${result}`);
+			console.info(
+				`Handled Error caught in callAction for action name: ${options.actionName} with error: ${result}`
+			);
 			return this.#handleError({
 				type: "ActionError",
 				error: <string | Error>result.toString(),
